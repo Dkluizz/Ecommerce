@@ -14,6 +14,14 @@ class CategoryController extends Controller
 
     public function index( Request $request)
     {
+        $search = request('search');
+        if($search){
+            $listProduct = Products::where([
+                ['name', 'like', '%'.$search.'%']])->get();
+
+        }else{
+            $listProduct = Products::all();
+        }
 
         $data=[];        
         $listCat = Category::all();
@@ -24,7 +32,7 @@ class CategoryController extends Controller
         
         //whereHas('category', fn($query)=>$query->where ('id',$id_category??null))->get();
 
-        return view('categories.index', $data);
+        return view('categories.index', $data,['list'=> $listProduct]);
     }
 
     public function create()

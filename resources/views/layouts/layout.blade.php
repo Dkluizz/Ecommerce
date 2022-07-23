@@ -36,7 +36,8 @@
          </li>
          
        </ul>
-       <a  href="#" class="p-2 text-decoration-none text-black fs-1rem d-flex flex-column text-center me-3 bg-warning rounded-circle shadow-sm bg-light rounded" ><i class="bi bi-cart " style="font-size:1.2rem "></i>
+       <a  href="{{route('cart.index', ['cart'])}}" class="p-2 text-decoration-none text-black fs-1rem d-flex flex-column text-center me-3 bg-warning rounded-circle shadow-sm bg-light rounded" >
+        <i class="bi bi-cart " style="font-size:1.2rem "></i>
        Carrinho
        </a>
        <form class="d-flex" role="search" action="{{route('home')}}" method="GET">
