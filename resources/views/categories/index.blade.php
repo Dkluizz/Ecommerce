@@ -4,7 +4,7 @@
 <div class=" container-fluid ms-4">
   <div class="row mb-3 mt-3 ">
       <div class=" col-2 justify-content-evenly">
-        <div class="list-group mx-2">
+        <div class="list-group mx-2"></div>
           <h4>
             <a class="text-decoration-none list-group-item" href="{{route('categories.index')}}">Todos</a>
             @foreach($catlist as $cat)
