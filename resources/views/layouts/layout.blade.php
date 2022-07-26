@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="{{url('/storage/images/favicon.png')}}" type="image/x-icon" />
 </head>
 
-<body >
+<body style="background-image: url('/storage/images/bg-n.png');">
   
 <div>
  <nav class="navbar navbar-expand-lg bg-light px-1  ">
