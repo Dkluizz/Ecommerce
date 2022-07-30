@@ -19,12 +19,12 @@
         @foreach($list as $prod) 
           <div class="card mx-2 col-2 mb-3"  >
             <img src="{{url($prod->photo)}}" class="card-img-top rounded" alt="...">
-            <div class="card-body">
+            <div class="card-body opacity-75">
               <h5 class="card-title">{{$prod->name}}</h5>
               <p class="card-text">{{$prod->value}}</p>
               <div class="text-center d-grid gap-2 d-md-block">
-                  <a href="{{route('cart.create', ['cart'])}}"> <button type="button" class="btn btn-outline-primary">Comprar </button></a>
-                  <a href="{{route('products.show',['product'])}}"> <button type="button" class="btn btn-outline-primary">Detalhes </button></a>
+                  <a href="{{route('cart.store', ['cart'=>$prod->id])}}"> <button type="button" class="btn btn-outline-primary">Comprar </button></a>
+                  <a href="{{route('products.show',['product'=>$prod->id])}}"> <button type="button" class="btn btn-outline-primary">Detalhes </button></a>
               </div>
             </div>
           </div>

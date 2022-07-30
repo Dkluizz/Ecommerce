@@ -30,7 +30,7 @@ class CategoryController extends Controller
         $data['catlist']=$listCat;
         $data['list']= $listProduct;
         
-        //whereHas('category', fn($query)=>$query->where ('id',$id_category??null))->get();
+        
 
         return view('categories.index', $data,['list'=> $listProduct]);
     }
@@ -53,9 +53,6 @@ class CategoryController extends Controller
         return redirect()->route('categories.create');
     }
 
-    public function idCat(){
-        //
-    }
-
+    
     //FIM CATEGORIA
 }

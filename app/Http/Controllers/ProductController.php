@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Products;
 
 use Illuminate\Http\Request;
@@ -14,25 +15,29 @@ class ProductController extends Controller
 
     public function create()
     {
+        $data=[];        
+        $listCat = Category::all();
+        $data['list']=$listCat;
         
-        return view('products.create');
+        return view('products.create',$data);
     }
 
     public function store(Request $request)
     {
-        $data = $request->all();
-        Products::create($data);
+        $product = $request->all();
+        Products::create($product);  
 
         return redirect()->route('users.index');
 
     }
 
-    public function show(Products $product) 
+    public function show($product) 
     {
-        if(!$show = Products::table('id'))
-            return redirect()->route('home');
+        $data=[];
+        $show = Products::where('product', 'id');
 
-        return view('products.show', compact('product')); 
+        $data['show']=$show;
+        return view('products.show', $data); 
     }
 
 
