@@ -3,40 +3,36 @@
 @section('content')
 <div class="container mx-5">
 <div class="row ">
-  <form action="{{route('products.store')}}" method="POST" class=" col-md  ">
+  <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data" class=" col-md  ">
     @csrf
   <div class="mt-1">
       <label for="name" class="form-label">Nome do Produto:</label>
-      <input type="text" class="form-control" id="name" placeholder="Nome do Produto">
+      <input type="text" class="form-control" name="name" placeholder="Nome do Produto">
       
       <div class="mt-2">
-      <label for="photo" class="form-label">Imagem do Produto</label>
-      <input type="file" class="form-control" id="photo">
+      <label for="image" >Imagem do Produto</label>
+      <input type="file" class="form-control-file"  name="photo">
       </div>
 
       <div class=" mt-2">
       <label for="id_category" class="form-label">Escolha uma categoria</label>
-      <select class="form-select" id="id_category" aria-label="Default select example">
+      <select class="form-select" name="id_category" aria-label="Default select example">
         <option selected>Categorias</option>
         @foreach($list as $cat)
-        <option value="{{$cat->id}}">{{$cat->name}}</option>
+        <option value="{{$cat->id}}">{{$cat->id}}.{{$cat->name}}</option>
         @endforeach
       </select>
       </div>
 
     <div class=" mt-2">
       <label for="description" class="form-label">Descrição Básica</label>
-      <input type="text" class="form-control" id="description" placeholder="Descrição">
-    </div>
-    <div class=" mt-0.8">
-      <label for="descriplg" class="form-label">Descrição Detalhada</label>
-      <input type="text" class="form-control" id="descriplg" placeholder="Especificações">
+      <input type="text" class="form-control" name="description" placeholder="Descrição">
     </div>
     </div>
 
     <div class="col-4 ">
       <label for="value" class="form-label">Valor:</label>
-      <input type="text" class="value" id="R$">
+      <input type="text" class="value" name="value">
     </div>
     
     <div class="mt-2 py-2">

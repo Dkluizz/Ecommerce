@@ -14,6 +14,7 @@
       {{url($product->value)}}
       {{url($product->description)}}
     </h4>
+    <img src="/storage/app/public/images/produtos/" alt="">
     @endforeach
     <input type="text" name="name" size="60" maxlength="45" /> 
     <button type="submit" class="btn btn-primary btn-lg mt-2">Comprar</button>

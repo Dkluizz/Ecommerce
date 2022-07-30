@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 return new class extends Migration
 {
@@ -27,6 +28,7 @@ return new class extends Migration
 
         $prod4 = new \App\Models\Products(['name'=> 'Monitor Samsung', 'value'=> '4000','photo'=> '/storage/images/produtos/monitor-samsung.jpg', 'description'=>'Monitor Samsung Odissey G5', 'id_category'=>$cat->id]);
         $prod4->save();
+
 
            
     }
