@@ -52,11 +52,14 @@ class ProductController extends Controller
     public function edit($product, Request $request )
     {
         $data = [];
-        $edit = Products::find($product);
-        //Products::find($product)->update($request ->all());
+        $cat = Category::all();
+        $data['cat']= $cat;
 
-        $data['edit'] = $edit;
-        return view('products.edit', $data);
+        $edit = Products::find($product);
+
+        Products::find($product)->update($request ->all());
+        
+        return view('products.edit', compact('edit'),$data);
 
     }
 
