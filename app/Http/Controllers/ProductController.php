@@ -41,14 +41,32 @@ class ProductController extends Controller
 
     }
 
-    public function show($cart) 
+    public function show($product) 
     {
-        $show = Products::find($cart);
+        $show = Products::find($product);
 
        // dd($show);
         return view('products.show', compact('show')); 
     }
 
+    public function edit($product, Request $request )
+    {
+        $data = [];
+        $edit = Products::find($product);
+        //Products::find($product)->update($request ->all());
+
+        $data['edit'] = $edit;
+        return view('products.edit', $data);
+
+    }
+
+    public function destroy($product)
+    {
+        
+        Products::findOrFail($product)->delete();
+
+        return redirect()->route('users.index');
+    }
 
     //FIM PRODUTO
 }

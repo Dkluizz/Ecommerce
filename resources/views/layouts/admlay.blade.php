@@ -12,7 +12,7 @@
 <title>LuckyShopp</title>
 </head>
 
-<body>
+<body style="background-image: url('/storage/images/bg-s.jpg');">
 <div>
  <nav class="navbar navbar-expand-lg bg-light px-1 ">
    <div class="container-fluid">

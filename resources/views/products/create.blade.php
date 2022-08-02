@@ -1,7 +1,7 @@
 @extends('layouts.admlay')
 
 @section('content')
-<div class="container mx-5">
+<div class="container text-white mx-5">
 <div class="row ">
   <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data" class=" col-md  ">
     @csrf

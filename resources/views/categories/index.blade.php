@@ -21,7 +21,7 @@
             <img src="{{url($prod->photo)}}" class="card-img-top rounded" alt="...">
             <div class="card-body opacity-75">
               <h5 class="card-title">{{$prod->name}}</h5>
-              <p class="card-text">{{$prod->value}}</p>
+              <p class="card-text">R$ {{$prod->value}}</p>
               <div class="text-center d-grid gap-2 d-md-block">
               <form action="{{route('cart.store')}}" method="POST">
                   @csrf

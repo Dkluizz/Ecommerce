@@ -9,12 +9,10 @@ class CartController extends Controller
 {
     public function index(Request $request)
     {
-        $data = [];
-        $cartProd = Cart::all();
-        $data['cart'] = $cartProd;
-
-    
-        return view('cart.index', $data);
+        $cart = Cart::all();
+        $total = Cart::all()->sum('value');
+        
+        return view('cart.index', compact('cart','total'));
     }
 
     public function store(Request $request)
@@ -22,16 +20,19 @@ class CartController extends Controller
         $data = $request->all();
         Cart::create($data);
 
+        return redirect()->back();
        
     }
 
-    public function update(){
+    
+    public function destroy($cart)
+    {
+        Cart::findOrFail($cart)->delete();
+
+        return redirect()->route('cart.index');
 
 
     }
 
-    public function delete(){
-
-
-    }
+    
 }

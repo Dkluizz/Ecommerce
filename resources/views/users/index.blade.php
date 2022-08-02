@@ -8,10 +8,14 @@
           <img src="{{url($prod->photo)}}" class="card-img-top rounded" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{$prod->name}}</h5>
-            <p class="card-text">{{$prod->value}}</p>
+            <p class="card-text">R$ {{$prod->value}}</p>
             <div class="text-center d-grid gap-2 d-md-block">
-                <a href="#"> <button type="button" class="btn btn-outline-primary">Atualizar </button></a>
-                <a href="#"> <button type="button" class="btn btn-outline-primary">Excluir </button></a>
+                <a href="{{route('products.edit',['product'])}}"> <button type="button" class="btn btn-outline-primary">Atualizar </button></a>
+                <form action="{{route('products.destroy',['product' => $prod ])}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-outline-primary">Excluir</button>
+                </form>
             </div>
           </div>
         </div>

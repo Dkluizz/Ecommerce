@@ -11,7 +11,7 @@
   <button type="submit" class="btn btn-primary">Criar</button>
 </form>
 
-<div class="container">
+<div class="container text-white">
   
   
   <div class="row justify-content-evenly">
