@@ -19,8 +19,8 @@ return new class extends Migration
             $table->decimal('value', 10,2);
             $table->dateTime('dt_item');
 
-            $table->integer('product_id')->unsigned();
-            $table->integer('request_id')->unsigned();
+            $table->unsignedInteger('product_id');
+            $table->unsignedInteger('request_id')->nullable();
             
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('request_id')->references('id')->on('requests')->onDelete('cascade');

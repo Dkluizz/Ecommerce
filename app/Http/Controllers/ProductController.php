@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Products;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -25,23 +26,22 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->only('name','value','photo','description','id_category');
-        if($request->hasFile('image') && $request->image->isValid()){
-            $extension = $request->file('photo')->getClientOriginalExtension();
+        if($request->has('photo') && $request->photo->isValid()){
             
-            $imagePath = $request->image->move(storage_path('public/images/products'));
+            $nameImage = $request->file('photo')->getClientOriginalName();
 
-            $data['photo']=$imagePath;
+            Storage::put("/public/images/produtos/{$nameImage}", file_get_contents($request->photo));  
 
+            $data['photo']="/storage/images/produtos/{$nameImage}";
         }
-        dd($data);
-
+        
         Products::create($data);
 
         return redirect()->route('users.index');
 
     }
 
-    public function show($product) 
+    public function show() 
     {
         $data=[];
         $show = Products::where('product', 'id');

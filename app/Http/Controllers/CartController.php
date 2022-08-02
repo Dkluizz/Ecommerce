@@ -14,15 +14,11 @@ class CartController extends Controller
         return view('cart.index');
     }
 
-    public function store($cart=0, Request $request){
-        if($cart !=0){
-            $data = $request->all();
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        //dd($data);
         Itens_Request::create($data);
-        }
-        dd($request);
-        /*$produc_id = new User();
-        $user->name = $request->name;
-        $user->save();*/
         
     }
 
