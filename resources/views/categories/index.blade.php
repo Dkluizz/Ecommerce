@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class=" container-fluid ms-4">
+<div class=" container-{breakpoint} ms-3">
   <div class="row mb-3 mt-3 ">
       <div class=" col-md-3 col-sm-10 col-10 justify-content-evenly">
         <div class="list-group mx-2">
@@ -23,7 +23,15 @@
               <h5 class="card-title">{{$prod->name}}</h5>
               <p class="card-text">{{$prod->value}}</p>
               <div class="text-center d-grid gap-2 d-md-block">
-                  <a href="{{route('cart.store', ['cart.store'=>$prod->id])}}"> <button type="button" class="btn btn-outline-primary">Comprar </button></a>
+              <form action="{{route('cart.store')}}" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-outline-primary">Comprar </button>
+                  <input type="hidden" name="product_id" value="{{$prod->id}}">
+                  <input type="hidden" name="name" value="{{$prod->name}}">
+                  <input type="hidden" name="photo" value="{{$prod->photo}}">
+                  <input type="hidden" name="value" value="{{$prod->value}}">
+                  <input type="hidden" name="description" value="{{$prod->description}}">
+                </form>
                   <a href="{{route('products.show',['product'=>$prod->id])}}"> <button type="button" class="btn btn-outline-primary">Detalhes </button></a>
               </div>
             </div>

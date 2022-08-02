@@ -41,13 +41,12 @@ class ProductController extends Controller
 
     }
 
-    public function show() 
+    public function show($cart) 
     {
-        $data=[];
-        $show = Products::where('product', 'id');
+        $show = Products::find($cart);
 
-        $data['show']=$show;
-        return view('products.show', $data); 
+       // dd($show);
+        return view('products.show', compact('show')); 
     }
 
 

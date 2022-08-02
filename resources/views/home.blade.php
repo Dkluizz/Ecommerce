@@ -3,7 +3,7 @@
 @section('content')
 
 
-  <div class="container-fluid mx-2 ">
+  <div class="container-{breakpoint} mx-2 ">
     <h3 class="text-center text-white mt-2">So na LuckyShopp, você encontra tudo para qualquer Setup ou Desafio.</h3>
     <div class="row justify-content-evenly ">
   <img src="{{url('/storage/images/banner1.jpg')}}" class="img-fluid col-5 shadow-lg p-2 bg-light rounded">
@@ -23,6 +23,10 @@
                   @csrf
                   <button type="submit" class="btn btn-outline-primary">Comprar </button>
                   <input type="hidden" name="product_id" value="{{$prod->id}}">
+                  <input type="hidden" name="name" value="{{$prod->name}}">
+                  <input type="hidden" name="photo" value="{{$prod->photo}}">
+                  <input type="hidden" name="value" value="{{$prod->value}}">
+                  <input type="hidden" name="description" value="{{$prod->description}}">
                 </form>
                   <a href="{{route('products.show',['product'=>$prod->id])}}"> <button type="submit" class="btn btn-outline-primary">Detalhes </button></a>
               </div>

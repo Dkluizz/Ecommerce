@@ -13,19 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('itens_requests', function (Blueprint $table) {
+        Schema::create('cart', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('amount');
-            $table->decimal('value', 10,2);
-            $table->dateTime('dt_item');
+            $table->string('name', 100);
+            $table->string('photo', 150)->nullable();
+            $table->decimal('value', 10,2)->default(0);
+            $table->string('description', 200)->nullable();
 
             $table->unsignedInteger('product_id');
-            $table->unsignedInteger('request_id')->nullable();
-            
+        
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('request_id')->references('id')->on('requests')->onDelete('cascade');
-
-
+            
 
             $table->timestamps();
         });
@@ -38,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('itens_requests');
+        Schema::dropIfExists('cart');
     }
 };

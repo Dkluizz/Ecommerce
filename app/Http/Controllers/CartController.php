@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Itens_Request;
-use App\Models\Products;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
     public function index(Request $request)
     {
+        $data = [];
+        $cartProd = Cart::all();
+        $data['cart'] = $cartProd;
+
     
-        return view('cart.index');
+        return view('cart.index', $data);
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
-        //dd($data);
-        Itens_Request::create($data);
-        
+        Cart::create($data);
+
+       
     }
 
     public function update(){
