@@ -3,27 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     
-    {
-        $search = request('search');
 
-        if($search){
-            $listProduct = Products::where([
-                ['name', 'like', '%'.$search.'%']
-
-        ])->get();
-
-        }else{
-            $listProduct = Products::all();
-        }
+    
+        public function index()
         
-        return view('home', ['list'=> $listProduct]);
-    }
-
+        {
+            $search = request('search');
     
+            if($search){
+                $listProduct = Products::where([
+                    ['name', 'like', '%'.$search.'%']
     
-}
+            ])->get();
+    
+            }else{
+                $listProduct = Products::all();
+            }
+            
+            return view('home', ['list'=> $listProduct]);
+        }}

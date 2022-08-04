@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $this->authorize('is_admin');
 
         $data=[];
         $listaProduto = Products::all();
@@ -36,8 +38,4 @@ class UserController extends Controller
     }    
 
 
-     public function login()
-    {
-        return view('login.userlogin');
-    }
 }

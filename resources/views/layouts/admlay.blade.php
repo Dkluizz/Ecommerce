@@ -28,6 +28,10 @@
          <li class="nav-item">
            <a class="nav-link" href="{{route('categories.create')}}">Cadastrar Categorias</a>
          </li>
+
+         <li class="nav-item">
+           <a class="nav-link" href="{{route('home')}}">Pagina Inicial</a>
+         </li>
                 
        </ul>
        <form class="d-flex" role="search">

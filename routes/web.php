@@ -3,22 +3,31 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
+Auth::routes();
 
 Route::get('/',  [HomeController::class,'index'])->name('home');
 
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->middleware('auth');
 
 Route::resource('categories', CategoryController::class);
 
-Route::resource('products', ProductController::class);
+Route::resource('products', ProductController::class,['only'=>['create','edit', 'destroy']])->Middleware('auth');
 
-Route::resource('/cart', CartController::class);
+Route::resource('products', ProductController::class, ['only'=>'show']);
 
-Route::resource('login', LoginController::class);
+Route::resource('/cart', CartController::class,['except'=> ['edit', 'show']])->middleware('auth');
+
+
+
+
+
 
 
 

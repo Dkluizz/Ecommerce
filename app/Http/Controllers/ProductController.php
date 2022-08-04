@@ -16,6 +16,8 @@ class ProductController extends Controller
 
     public function create()
     {
+        $this->authorize('is_admin');
+
         $data=[];        
         $listCat = Category::all();
         $data['list']=$listCat;
@@ -51,6 +53,8 @@ class ProductController extends Controller
 
     public function edit($product, Request $request )
     {
+        $this->authorize('is_admin');
+        
         $data = [];
         $cat = Category::all();
         $data['cat']= $cat;
