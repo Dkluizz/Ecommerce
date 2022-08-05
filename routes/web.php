@@ -18,11 +18,13 @@ Route::resource('users', UserController::class)->middleware('auth');
 
 Route::resource('categories', CategoryController::class);
 
-Route::resource('products', ProductController::class,['only'=>['create','edit', 'destroy']])->Middleware('auth');
+Route::resource('products', ProductController::class,['only'=>['create','edit', 'destroy','store']])->Middleware('auth');
 
 Route::resource('products', ProductController::class, ['only'=>'show']);
 
 Route::resource('/cart', CartController::class,['except'=> ['edit', 'show']])->middleware('auth');
+
+Route::delete('/cart', [CartController::class, 'clear'])->name('cart.clear');
 
 
 

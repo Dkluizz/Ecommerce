@@ -4,7 +4,7 @@
 <div class="container mx-5 mt-4 text-white">
 <div class="row ">
   
-  <form class=" col-md " action="{{route('products.edit',['product'])}}" method="POST">
+  <form class=" col-md " action="{{route('products.edit',['product'])}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="mt-1">
@@ -13,8 +13,10 @@
       
       <div class="mt-2">
       <label for="image" >Imagem do Produto</label>
-      <input type="file" class="form-control-file"  name="photo" value="{{$edit->photo}}">
+      <input type="file" class="form-control-file"  name="photo" value="{{$edit->photo}}" >
       </div>
+
+      <img class="rounded" src="{{$edit->photo}}" alt="{{$edit->name}}" style="width: 15rem; height: 15rem">
 
       <div class=" mt-2">
       <label for="id_category" class="form-label">Escolha uma categoria</label>

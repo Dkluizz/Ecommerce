@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +14,7 @@ class Products extends Model
     protected $primaryKey = "id";
     public $incrementing = true;
     protected $fillable = ["name","value","photo","description","id_category"];
+    protected $guarded=[];
    
     public function category(): BelongsTo
     {

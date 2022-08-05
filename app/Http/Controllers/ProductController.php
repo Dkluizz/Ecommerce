@@ -55,15 +55,26 @@ class ProductController extends Controller
     {
         $this->authorize('is_admin');
         
-        $data = [];
+        $catList = [];
         $cat = Category::all();
-        $data['cat']= $cat;
+        $catList['cat'] = $cat;
 
         $edit = Products::find($product);
-
-        Products::find($product)->update($request ->all());
         
-        return view('products.edit', compact('edit'),$data);
+        $data = $request->only('name','value','photo','description','id_category');
+        if($request->has('photo') && $request->photo->isValid()){
+            
+            $nameImage = $request->file('photo')->getClientOriginalName();
+
+            Storage::put("/public/images/produtos/{$nameImage}", file_get_contents($request->photo));  
+
+            $data['photo']="/storage/images/produtos/{$nameImage}";
+        }
+        
+        Products::find($product)->update($request ->all());
+
+        return view('products.edit', compact('edit'),$catList);
+
 
     }
 

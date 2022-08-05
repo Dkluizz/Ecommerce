@@ -14,7 +14,7 @@
     <div class=" row row-cols-3 row-cols-md-6  justify-content-evenly "> 
       @foreach($list as $prod) 
         <div class="card mx-2 col-md-2 col-sm-3 col-10 mb-3"  >
-          <img src="{{url($prod->photo)}}" class="card-img-top rounded " alt="...">
+          <img src="{{url($prod->photo)}}" class="card-img-top rounded" alt="..." style="width: 100%; height: 100% ">
           <div class="card-body opacity-75">
             <h5 class="card-title">{{$prod->name}}</h5>
             <p class="card-text">R$ {{$prod->value}}</p>

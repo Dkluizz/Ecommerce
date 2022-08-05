@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -33,6 +34,16 @@ class CartController extends Controller
 
 
     }
+
+
+    public function clear()
+    {
+        
+        Cart::truncate();        
+        return redirect(route('cart.index'))->with('mensagem','Compra realizada com sucesso');       
+
+    }
+    
 
     
 }
