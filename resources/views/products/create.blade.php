@@ -10,7 +10,7 @@
       <input type="text" class="form-control" name="name" placeholder="Nome do Produto">
       
       <div class="mt-2">
-      <label for="image" >Imagem do Produto</label>
+      <label for="photo" >Imagem do Produto</label>
       <input type="file" class="form-control-file"  name="photo">
       </div>
 
