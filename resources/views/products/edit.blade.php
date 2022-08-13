@@ -4,10 +4,11 @@
 <div class="container mx-5 mt-4 text-white">
 <div class="row ">
   
-  <form class=" col-md " action="{{route('products.edit',['product'])}}" method="POST" enctype="multipart/form-data">
+  <form class="col-md" action="{{route('products.update',['product'=> $edit->id])}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="mt-1">
+      <input type="hidden" name="id" value="{{$edit->id}}">
       <label for="name" class="form-label">Nome do Produto:</label>
       <input type="text" class="form-control" name="name" value="{{$edit->name}}">
       
@@ -16,12 +17,12 @@
       <input type="file" class="form-control-file"  name="photo" value="{{$edit->photo}}" >
       </div>
 
-      <img class="rounded" src="{{$edit->photo}}" alt="{{$edit->name}}" style="width: 15rem; height: 15rem">
+      <img class="rounded" src="{{$edit->photo}}" alt="{{$edit->name}}" style="width: 25%; height: 25%">
 
       <div class=" mt-2">
       <label for="id_category" class="form-label">Escolha uma categoria</label>
       <select class="form-select" name="id_category" aria-label="Default select example" >
-        <option selected>Categorias</option>
+        <option selected>{{$edit->id_category}}</option>
         @foreach($cat as $cats)
         <option value="{{$cats->id}}">{{$cats->id}}.{{$cats->name}}</option>
         @endforeach

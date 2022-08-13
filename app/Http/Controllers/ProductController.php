@@ -51,17 +51,29 @@ class ProductController extends Controller
         return view('products.show', compact('show')); 
     }
 
-    public function edit($product, Request $request )
+    public function edit($product)
     {
         $this->authorize('is_admin');
-        
+
+        // lista Categorias
         $catList = [];
         $cat = Category::all();
         $catList['cat'] = $cat;
 
+        //lista Produtos
         $edit = Products::find($product);
+
+        return view('products.edit', compact('edit'),$catList);
+
+    }
+
+    public function update($product, Request $request)
+    {
+        $this->authorize('is_admin');
+
+        $data = $request->all();
         
-        $data = $request->only('name','value','photo','description','id_category');
+        //upload IMAGE
         if($request->has('photo') && $request->photo->isValid()){
             
             $nameImage = $request->file('photo')->getClientOriginalName();
@@ -71,15 +83,14 @@ class ProductController extends Controller
             $data['photo']="/storage/images/produtos/{$nameImage}";
         }
         
-        Products::find($product)->update($request ->all());
+        Products::find($product)->update($data);
 
-        return view('products.edit', compact('edit'),$catList);
-
-
+        return redirect()->route('users.index');
     }
 
     public function destroy($product)
     {
+        $this->authorize('is_admin');
         
         Products::findOrFail($product)->delete();
 
