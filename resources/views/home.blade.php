@@ -6,8 +6,8 @@
   <div class="container-{breakpoint} mx-2 ">
     <h3 class="text-center text-white mt-2">So na LuckyShopp, você encontra tudo para qualquer Setup ou Desafio.</h3>
     <div class="row justify-content-evenly ">
-  <img src="{{url('/storage/images/banner1.jpg')}}" class="img-fluid col-5 shadow-lg p-2 bg-light rounded">
-  <img src="{{url('/storage/images/banner2.jpg')}}" class="img-fluid col-5 shadow-lg p-2 bg-light rounded ">
+  <img src="{{url('/assets/images/banner1.jpg')}}" class="img-fluid col-5 shadow-lg p-2 bg-light rounded">
+  <img src="{{url('/assets/images/banner2.jpg')}}" class="img-fluid col-5 shadow-lg p-2 bg-light rounded ">
   </div>
   <br>
 

@@ -18,15 +18,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"> 
 
 <title>LuckyShopp</title>
-<link rel="shortcut icon" href="{{url('/storage/images/favicon.png')}}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{url('/assets/images/favicon.png')}}" type="image/x-icon" />
 </head>
 
-<body style="background-image: url('/storage/images/bg-s.jpg');">
+<body style="background-image: url('/assets/images/bg-s.jpg');">
   
 <div>
  <nav class="navbar navbar-expand-lg bg-light px-1  ">
    <div class="container-fluid">
-     <a class="navbar-brand" href="{{route('home')}}"><img src="{{url('/storage/images/logo.png')}}" class="img-fluid" alt="LuckyShopp"></a>
+     <a class="navbar-brand" href="{{route('home')}}"><img src="{{url('/assets/images/logo.png')}}" class="img-fluid" alt="LuckyShopp"></a>
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
      </button>
