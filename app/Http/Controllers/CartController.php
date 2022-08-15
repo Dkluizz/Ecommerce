@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
-use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
     public function index(Request $request)
     {
-        $cart = Cart::all();
-        $total = Cart::all()->sum('value');
+        $cart = Cart::where('id_user' , Auth::user()->id)->get();
+        $total = Cart::where('id_user' , Auth::user()->id)->sum('value');
         
         return view('cart.index', compact('cart','total'));
     }
@@ -40,7 +40,7 @@ class CartController extends Controller
     public function clear()
     {
         
-        Cart::truncate();        
+        Cart::where("id_user" , Auth::user()->id)->delete();        
         return redirect(route('cart.index'))->with('mensagem','Compra realizada com sucesso');       
 
     }

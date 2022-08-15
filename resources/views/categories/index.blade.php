@@ -26,6 +26,9 @@
               <form action="{{route('cart.store')}}" method="POST">
                   @csrf
                   <button type="submit" class="btn btn-outline-primary">Comprar </button>
+                  @auth
+                    <input type="hidden" name="id_user"  value="{{Auth::user()->id}}">
+                  @endauth
                   <input type="hidden" name="product_id" value="{{$prod->id}}">
                   <input type="hidden" name="name" value="{{$prod->name}}">
                   <input type="hidden" name="photo" value="{{$prod->photo}}">

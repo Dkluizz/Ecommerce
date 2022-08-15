@@ -67,7 +67,7 @@
            <a class="nav-link" href="{{route('categories.index')}}">Categorias</a>
          </li>
 
-         @can('is_admin')
+      @can('is_admin')
          <li class="nav-item">
            <a class="nav-link" href="{{route('users.index')}}">Administrador</a>
          </li>
