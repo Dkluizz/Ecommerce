@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('description', 200)->nullable();
 
             $table->unsignedInteger('product_id');
+            $table->unsignedInteger('id_user');
         
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             

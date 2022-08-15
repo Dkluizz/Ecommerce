@@ -43,7 +43,7 @@
   </form>
  
   <div class="col-md position-relative mt-5 pt-5 mx-5 ">
-   <img src="{{url('/storage/images/logo2.png')}}" class="mx-5" alt="LuckyShopp">
+   <img src="{{url('/assets/images/logo2.png')}}" class="mx-5" alt="LuckyShopp">
    </div>
   
 </div>

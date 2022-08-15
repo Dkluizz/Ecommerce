@@ -12,11 +12,11 @@
 <title>LuckyShopp</title>
 </head>
 
-<body style="background-image: url('/storage/images/bg-s.jpg');">
+<body style="background-image: url('/assets/images/bg-s.jpg');">
 <div>
  <nav class="navbar navbar-expand-lg bg-light px-1 ">
    <div class="container-fluid">
-     <a class="navbar-brand" href="{{route('users.index')}}"><img src="{{url('/storage/images/logo.png')}}" alt="LuckyShopp"></a>
+     <a class="navbar-brand" href="{{route('users.index')}}"><img src="{{url('/assets/images/logo.png')}}" alt="LuckyShopp"></a>
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
      </button>
