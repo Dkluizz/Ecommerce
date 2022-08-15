@@ -1,7 +1,7 @@
 -> Após clonar o projeto execute:
 
-npm install
-npm run dev
+<p>npm install</p>
+npm run dev 
 php artisan storage link
 
 -> Após criar o banco de dados:
