@@ -1,14 +1,14 @@
 -> Após clonar o projeto execute:
 
 <p>npm install</p>
-npm run dev 
-php artisan storage link
+<p>npm run dev </p>
+<p>php artisan storage link</p>
 
--> Após criar o banco de dados:
+<p>-> Após criar o banco de dados:</p>
 
-php artisan migrate
-php artisan db:seed
+<p>php artisan migrate</p>
+<p>php artisan db:seed</p>
 
--> usuario admin = admin@dkluizz.com
-           senha = admin123456
+<p>-> usuario admin = admin@dkluizz.com</p>
+          <p> senha = admin123456</p>
           
