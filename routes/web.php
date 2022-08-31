@@ -18,6 +18,8 @@ Route::resource('users', UserController::class)->middleware('auth');
 
 Route::resource('categories', CategoryController::class);
 
+Route::resource('categories', CategoryController::class,['only'=>'create'])->middleware('auth');
+
 Route::resource('products', ProductController::class,['only'=>['create','edit', 'destroy','store','update']])->Middleware('auth');
 
 Route::resource('products', ProductController::class, ['only'=>'show']);
