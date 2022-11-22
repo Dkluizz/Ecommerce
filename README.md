@@ -13,4 +13,4 @@
 <p>-> usuario admin = admin@dkluizz.com</p>
           <p> senha = admin123456</p>
           
-<a href="resources/views/home.blade.php name="Ecommerce"
+<a href="https://dkluizz.github.io/Ecomerce/resources/views/home.blade.php" name="Ecommerce"
