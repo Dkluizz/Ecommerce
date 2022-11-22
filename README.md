@@ -1,4 +1,3 @@
-<a href="resources/views/home.blade.php" style="visibility:hidden"
 
 -> Após clonar o projeto execute:
 
